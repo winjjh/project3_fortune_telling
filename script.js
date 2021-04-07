@@ -9,105 +9,93 @@ var base = new Airtable({ apiKey: "keyuZxN16RiqUv9vr" }).base(
     "applmrp6L7vZ2YqB1"
   );
 
-  // get our air table data and specify how to retreieve it.
-base("playlist").select({}).eachPage(gotPageOfSongs, gotAllSongs);
 
-// an empty array to hold our  data
-const songs = [];
+const cards = document.querySelectorAll(".flip-card-inner");
 
-// callback function that receives our data
-function gotPageOfSongs(records, fetchNextPage) {
-    console.log("gotPageOfSongs()");
-    // add the records from this page to our array
-    songs.push(...records);
-    // request more pages
-    fetchNextPage();
-  }
+function flipCard() {
+  this.classList.toggle("flip");
+}
+cards.forEach((card) => card.addEventListener("click", flipCard));
 
-  // call back function that is called when all pages are loaded
-function gotAllSongs(err) {
-    console.log("gotAllSongs()");
-  
-    // report an error, you'd want to do something better than this in production
-    if (err) {
-      console.log("error loading data");
-      console.error(err);
-      return;
-    }
 
-  // call functions to log and show the books
-  consoleLogSongs();
-  showSongs();
+
+
+
+
+  let rollingData = [
+    'Welcome Visitor ',
+    'This is ',
+    'About Fortune',
+    'Telling',
+    'Wish a Luck',
+    'Choose One'
+
+]    // 롤링할 데이터를 넣으면 됩니다 갯수 제한 없음
+
+let timer = 2000 // 롤링되는 주기 (1000 => 1초)
+rollingData.classList.add("text-list")
+
+
+let first = document.getElementById('first'),
+second = document.getElementById('second'),
+third = document.getElementById('third')
+let move = 2
+let dataCnt = 1
+let listCnt = 1
+
+//위 선언은 따로 완전히 수정하지 않는 한 조정할 필요는 없음.
+
+first.children[0].innerHTML = rollingData[0]
+
+setInterval(() => {
+if(move == 2){
+first.classList.remove('card_sliding')
+first.classList.add('card_sliding_after')
+
+second.classList.remove('card_sliding_after')
+second.classList.add('card_sliding')
+
+third.classList.remove('card_sliding_after')
+third.classList.remove('card_sliding')
+
+move = 0
+} else if (move == 1){
+first.classList.remove('card_sliding_after')
+first.classList.add('card_sliding')
+
+second.classList.remove('card_sliding_after')
+second.classList.remove('card_sliding')
+
+third.classList.remove('card_sliding')
+third.classList.add('card_sliding_after')
+
+move = 2
+} else if (move == 0) {
+first.classList.remove('card_sliding_after')
+first.classList.remove('card_sliding')
+
+second.classList.remove('card_sliding')
+second.classList.add('card_sliding_after')
+
+third.classList.remove('card_sliding_after')
+third.classList.add('card_sliding')
+
+move = 1
 }
 
-// just loop through thour air tablee data and console.log it
-function consoleLogSongs() {
-    console.log("consoleLogSongs()");
-    songs.forEach((song) => {
-      console.log("song:", song);
-    });
-  }
-  
-// look through airtable data, and display them onto our page
-  function showSongs() {
-    console.log("showSongs()");
-    songs.forEach((song) => {
-      //add song title
-        //var songTitle = document.createElement("h1");
-        //songTitle.innerText = song.fields.title;
-        //document.body.appendChild(songTitle);
-        
-        //add artist name to page
-        //var songArtist = document.createElement("h1");
-        //songArtist.innerText = song.fields.artist;
-        //document.body.appendChild(songArtist);
-         // adding artist image to page
-         //var songImage = document.createElement("img");
-         //songImage.src = song.fields.image[0].url;
-         //document.body.appendChild(songImage);
-
-         // Creating a new div container
-         //This is where our song info will go
-         var songContainer = document.createElement("div");
-         songContainer.classList.add("song-container");
-         document.querySelector(".container").append(songContainer);
-
-
-         // add song titles to our container
-         var songTitle = document.createElement("h1");
-         songTitle.classList.add("song-title");
-         songTitle.innerText = song.fields.song_title;
-         songContainer.append(songTitle);
-
-
-         // add  artist to our song container
-         var songArtist =document.createElement("h1");
-         songArtist.classList.add("song-artist");
-         songArtist.innerText = song.fields.artist;
-         songContainer.append(songArtist);
-
-         // add description to our song container
-         var songDescription = document.createElement("p");
-         songDescription.classList.add("song-description");
-         songDescription.innerText = song.fields.description;
-         songContainer.append(songDescription);
-
-         // add image to our song container
-         var songImage = document.createElement("img");
-         songImage.classList.add("song-image");
-         songImage.src = song.fields.song_image[0].url;
-         songContainer.append(songImage);
-
-         // add event listener
-         // when user clicks on song container
-         // image and description will appear or disappear
-
-         songContainer.addEventListener("click", function(){
-             songDescription.classList.toggle("active");
-         })
-         songImage.classList.toggle("active");
-         
-    });
-
-    
+if(dataCnt < (rollingData.length - 1)) {
+document.getElementById('rolling_box').children[listCnt].children[0].innerHTML = rollingData[dataCnt]
+dataCnt++
+} else if(dataCnt == rollingData.length - 1) {
+document.getElementById('rolling_box').children[listCnt].children[0].innerHTML = rollingData[dataCnt]
+dataCnt = 0
 }
+
+if(listCnt < 2) {
+listCnt++
+} else if (listCnt == 2) {
+listCnt = 0
+}
+
+console.log(listCnt)
+}, timer);
