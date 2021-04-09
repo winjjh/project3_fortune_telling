@@ -66,8 +66,9 @@ h1 {
     left: 20%;
   }
   .book .pages {
-    width: 60vw;
-    height: 44vw;
+    width: 100vw;
+    height: 100vw;
+    left: -20%;
     position: relative;
     transform-style: preserve-3d;
     backface-visibility: hidden;
@@ -86,9 +87,9 @@ h1 {
   
   .book .page {
     position: absolute;
-    top: 0;
-    width: 30vw;
-    height: 44vw;
+    top: -3%;
+    width: 50vw;
+    height: 64vw;
     transform-origin: 0 0;
     transition: transform 1.4s;
     backface-visibility: hidden;
