@@ -3,14 +3,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Yatra+One&display=swap');
 
 .jb-box {
-  position: relative;
+  position: absolute;
+  padding: 20px;
+  top: -5%;
   width: 100%;
   height: auto;
-  overflow: hidden;
-  text-align:center;
   margin: 0px auto;
   margin-top: 2rem;
-  position: relative;
+}
+
+.background {
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  padding: 20px;
+  opacity: 0.5;
 }
 
 video {

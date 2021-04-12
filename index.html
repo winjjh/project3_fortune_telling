@@ -8,80 +8,118 @@
     <title>Project 3 Fortune Telling</title>
 
     <!-- add reset to create consistency between browsers and devices. -->
-    <link rel="stylesheet" type="text/css" href="./reset.css">
-    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
 
     <!-- add link to your javascript. be sure it includes "defer" -->
     <script type="text/javascript" src="./airtable.browser.js" defer></script>
+    <!-- add jquery library before our custom javascript file -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
     <script type="text/javascript" src="./script.js" defer></script>
+    
 </head>
 
 <body>
 
     
     <div class="jb-box">
-        <video autoplay loop muted>
-        <source src="./assets/Golden .mp4" type="video/mp4">
-            "your browser does not support the vidoe tag."
-    </video>
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
+        <img id="image1" class="background-rotate" alt="cards" src="./assets/card_5.png">
+        <audio id='audio1'>
+            <source src="./assets/ES_Beep.mp3"></source>
+            Your browser does not support the audio function
+        </audio>
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
+        <img class="background-rotate" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background-rotate" alt="cards" src="./assets/card_3.png">
+        <img class="background" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
+        <img class="background" alt="cards" src="./assets/card_5.png"> 
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
+        <img class="background-rotate" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
+        <img class="background" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img  class="background-rotate" alt="cards" src="./assets/card_3.png">
+        <img class="background" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img id="image2" class="background-rotate" alt="cards" src="./assets/card_3.png">
+        <audio id='audio2'>
+            <source src="./assets/ES_Multimedia Notify 7.mp3"></source>
+            Your browser does not support the audio function
+        </audio>
+        <img class="background" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
+        <img  class="background-rotate" alt="cards" src="./assets/card_5.png">
+        <img class="background" alt="cards" src="./assets/card_1.png">
+        <img class="background-rotate" alt="cards" src="./assets/card_3.png">
+        <img class="background" alt="cards" src="./assets/card_5.png">
+        <img class="background-rotate" alt="cards" src="./assets/card_1.png">
+        <img class="background" alt="cards" src="./assets/card_3.png">
 </div>
-     
-     
-     <div class="flip-card">
 
-             <div class="flip-card-inner">
-                 <div class="flip-card-front">
-            <img class="card_image" alt="Cards" src="./assets/japan.png">
+     <!-- create a main container that wraps around all the flip cards, called "cards-container" -->
+    <div class="cards-container">
+        <!-- each flip-card needs to have own div -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="card_image" alt="Cards" src="./assets/japan.png">
+                </div>
+                <div class="flip-card-back">
+                    <div class="japan">
+                        <h2>Japan</h2>
+                        <ol>
+                            <li><a href="./japan/japan_one.html">All About</br>Fortune Telling</br>Information</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="flip-card-back">
-            <div class="japan">
-            <h2>Japan</h2>
-            <ol>
-                <li><a href="./japan/japan_one.html">All About</br>Fortune Telling</br>Information</a></li>
-            </ol>
+        <!-- flip card 2 -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="card_image" alt="Cards" src="./assets/western.png">
+                </div>
+                <div class="flip-card-back">
+                    <div class="western">
+                        <h2>Western</h2>
+                        <ol>
+                            <li><a href="./western/western.html">All About</br>Western</br>Fortune Telling</a></li>                        </ol>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- flip card 3 -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img class="card_image" alt="Cards" src="./assets/china.png">
+                </div>
+                <div class="flip-card-back">
+                    <div class="china">
+                        <h2>China</h2>
+                        <ol>
+                            <li><a href="./western/western.html">All About</br>Chinese</br>Fortune Telling</a></li>                        </ol>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-    
-    
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-       <img class="card_image" alt="Cards" src="./assets/western.png">
-   </div>
-
-   <div class="flip-card-back">
-       <div class="western">
-       <h2>Western</h2>
-       <ol>
-           <li>Fortune Tell 1</li>
-           <li>Fortune Tell 2: Witchcraft Object</li>
-           <li>Fortune Tell 3: Universe</li>
-           <li>Fortune Tell 4: Fortune Teller</li>
-       </ol>
     </div>
-    </div>
-</div>
 
-
-<div class="flip-card-inner">
-    <div class="flip-card-front">
-<img class="card_image" alt="Cards" src="./assets/china.png">
-</div>
-
-<div class="flip-card-back">
-    <div class="china">
-<h2>China</h2>
-<ol>
-   <li>Fortune Tell 1</li>
-   <li>Fortune Tell 2: Witchcraft Object</li>
-   <li>Fortune Tell 3: daoism</li>
-</ol>
-</div>
-</div>
-</div>
 
 
 <div class="rolling_box">

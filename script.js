@@ -20,6 +20,36 @@ cards.forEach((card) => card.addEventListener("click", flipCard));
 
 
 
+//function hzplay($mp3){
+  //hz = document.getElementById("hz");
+  //hz.src = $mp3;
+  //hz.play();
+//}
+
+
+
+// sound effect
+var audio1 = $("#audio1")[0];
+$("#image1").mouseenter(function(){
+  audio1.play();
+  audio1.loop = true;
+});
+$("#image1").mouseleave(function(){
+  audio1.currentTime = 0;
+  audio1.pause();
+});
+
+var audio2 = $("#audio2")[0];
+$("#image2").mouseenter(function(){
+  audio2.play();
+  audio2.loop = true;
+});
+$("#image2").mouseleave(function(){
+  audio2.currentTime = 0;
+  audio2.pause();
+});
+
+
 
 
   let rollingData = [

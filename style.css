@@ -7,27 +7,58 @@ body {
 }
 
 .jb-box {
-    position: relative;
+    position: absolute;
+    padding: 20px;
+    top: -5%;
     width: 100%;
     height: auto;
-    overflow: hidden;
-    text-align:center;
     margin: 0px auto;
     margin-top: 2rem;
-    position: relative;
 }
 
-video {
-    position: fixed;
-    top:0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
+.background {
     width: auto;
     height: auto;
-    z-index: -1;
+    max-width: 200px;
+    max-height: 150px;
+    padding: 20px;
+    opacity: 0.5;
+    z-index:-1;
 }
 
+.background-rotate {
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 220px;
+    padding: 20px;
+    opacity: 0.5;
+    animation: rotate-image 2s linear infinite;
+    transform-origin: 50% 50%;
+    z-index:-1;
+}
+
+@keyframes rotate-image {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.background:hover {
+    opacity: 2;
+}
+
+.background-rotate:hover {
+    opacity:1;
+}
+
+
+/* 주의하기 리스트는 항상 패딩이랑 마진 0로 값 주기 ordered lists have a default padding and margin so set them to 0 */ 
+ol {
+    padding: 0;
+    margin: 0;
+  }
+  
 .flip-card {
     display: flex;
     perspective: 1000px;
@@ -35,12 +66,29 @@ video {
     align-content: center;
     align-items: center;
     z-index: 2;
+    /* set width and height to each flip card to maintain size */
+    width: 300px;
+    height: 450px;
+    margin: 20px;
 }
+
+/* add container div that wraps around all the cards called card-container */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* the following code centers the cards in the middle of page */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 .flip-card-inner {
     display: flex;
     flex-direction: column;
-    margin-bottom: -50%;
+    margin-bottom: -65%;
     padding: 120px;
     cursor: pointer;
     width: 120px;
@@ -60,10 +108,6 @@ video {
 img {
     width: 300px;
     height: 450px;
-}
-
-.card-image {
-    
 }
 
 h2 {
