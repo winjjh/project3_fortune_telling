@@ -39,6 +39,7 @@ $("#image1").mouseleave(function(){
   audio1.pause();
 });
 
+
 var audio2 = $("#audio2")[0];
 $("#image2").mouseenter(function(){
   audio2.play();
@@ -49,6 +50,82 @@ $("#image2").mouseleave(function(){
   audio2.pause();
 });
 
+
+var audio3 = $("#audio3")[0];
+$("#image3").mouseenter(function(){
+  audio3.play();
+  audio3.loop = true;
+});
+$("#image3").mouseleave(function(){
+  audio3.currentTime = 0;
+  audio3.pause();
+});
+
+
+var audio4 = $("#audio4")[0];
+$("#image4").mouseenter(function(){
+  audio4.play();
+  audio4.loop = true;
+});
+$("#image4").mouseleave(function(){
+  audio4.currentTime = 0;
+  audio4.pause();
+});
+
+
+var audio5 = $("#audio5")[0];
+$("#image5").mouseenter(function(){
+  audio5.play();
+  audio5.loop = true;
+});
+$("#image5").mouseleave(function(){
+  audio5.currentTime = 0;
+  audio5.pause();
+});
+
+
+var audio6 = $("#audio6")[0];
+$("#image6").mouseenter(function(){
+  audio6.play();
+  audio6.loop = true;
+});
+$("#image6").mouseleave(function(){
+  audio6.currentTime = 0;
+  audio6.pause();
+});
+
+
+var audio7 = $("#audio7")[0];
+$("#image7").mouseenter(function(){
+  audio7.play();
+  audio7.loop = true;
+});
+$("#image7").mouseleave(function(){
+  audio7.currentTime = 0;
+  audio7.pause();
+});
+
+
+var audio8 = $("#audio8")[0];
+$("#image8").mouseenter(function(){
+  audio8.play();
+  audio8.loop = true;
+});
+$("#image8").mouseleave(function(){
+  audio8.currentTime = 0;
+  audio8.pause();
+});
+
+
+var audio9 = $("#audio9")[0];
+$("#image9").mouseenter(function(){
+  audio9.play();
+  audio9.loop = true;
+});
+$("#image9").mouseleave(function(){
+  audio9.currentTime = 0;
+  audio9.pause();
+});
 
 
 

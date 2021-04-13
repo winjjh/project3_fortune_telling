@@ -2,38 +2,7 @@
     to your site with Javascript */
 
 // prints "hi" in the browser's dev tools console
-console.log("hi");
 
-var pages = document.getElementsByClassName('page');
-for(var i = 0; i < pages.length; i++)
-  {
-    var page = pages[i];
-    if (i % 2 === 0)
-      {
-        page.style.zIndex = (pages.length - i);
-      }
-  }
-
-document.addEventListener('DOMContentLoaded', function(){
-  for(var i = 0; i < pages.length; i++)
-    {
-      //Or var page = pages[i];
-      pages[i].pageNum = i + 1;
-      pages[i].onclick=function()
-        {
-          if (this.pageNum % 2 === 0)
-            {
-              this.classList.remove('flipped');
-              this.previousElementSibling.classList.remove('flipped');
-            }
-          else
-            {
-              this.classList.add('flipped');
-              this.nextElementSibling.classList.add('flipped');
-            }
-         }
-      }
-})
 
 
 
@@ -53,7 +22,7 @@ var base = new Airtable({ apiKey: "keyuZxN16RiqUv9vr" }).base(
 base ("fortune_telling").select({}).eachPage(gotPageOfImage, gotAllImages);
 
 // an empty array to hold our data
-var Images = [];
+var images = [];
 
 // callback function that recieve our data
 function gotPageOfImage(records, fetchNextPage) {
@@ -77,7 +46,12 @@ function gotAllImages(err) {
 
 // call functions to log and show the books
 consoleLogImages();
-showImages();
+
+try {
+  showImages();
+}catch(e) {
+    console.error(e);
+  }
 }
 
 // just loop through thour air tablee data and console.log it
@@ -93,25 +67,105 @@ function showImages() {
   console.log("showImages()");
   images.forEach((japan) => {
     
-    var countryCategory = image.fields.country_category
+    var countryCategory = japan.fields.country_category
     countryCategory.forEach((category) => {
       
       if (category == 'japan') {
+
+        // 1. create div for image PAGE
+        var japanImagePage = document.createElement("div");
+        // 2. add class of "page" to new div
+        japanImagePage.classList.add("page");
+        // 3. create a new image
+        var japanImage = document.createElement("img");
+        // 4. add class of japan-image to new image
+        japanImage.classList.add("japan-image");
+        // 5. add link "src to image
+        japanImage.src = japan.fields.img[0].url;
+        // 6. add our image to our page
+        japanImagePage.appendChild(japanImage);
+        // 7. finally, add our new page with our image to our book
+        document.querySelector("#pages").append(japanImagePage);
+
+
+        // create div for text PAGE
+        var japanTextPage = document.createElement("div");
+        // 2. add class of page to new div
+        japanTextPage.classList.add("page");
+        // 3. create new paragraph
+        var japanDescription = document.createElement("p");
+        // 4. add class to our paragraph
+        japanDescription.classList.add("japan-description");
+        // 5. add description to our paragraph
+        japanDescription.innerText = japan.fields.description;
+        // 6. add our description to our page page (page div)
+        japanTextPage.appendChild(japanDescription);
+
+
+//7. create a new headline
+var japanTitle = document.createElement("h1");
+// 8. add a class to japan title
+japanTitle.classList.add("japan-title")
+// 9. add our title from airtable
+japanTitle.innerText = japan.fields.title;
+// 10. add title to the  book container
+japanTextPage.appendChild(japanTitle);
+// 7. add new page(image page, text page and the title) to our book container(html에 id="pages"라고 준것에다가 넣기)
+document.querySelector("#pages").append(japanTextPage)
+
         
-        // display japan images
-        var japanImages = document.createElement("img");
-        japanImages.classList.add('japan-image');
-        japanImages.srrc = japan.fields.img[0].url;
-        document.querySelector.apply(".page").appendChild(japanImages);
+
+
+
+
       }
 
-      // add description to our song container
-      var japanDescription = document.createElement("p");
-      japanDescription.classList.add("japan-description");
-      japanDescription.innerText = japan.fields.description;
-      songContainer.append(japanDescription);
 
     })
   });
+
+// run page flipping interaction code after data is added to page
+pageFlip()
+
 }
 
+
+
+
+
+
+function pageFlip() {
+// =======// page flipping interaction begins here =======//
+console.log("hi");
+
+var pages = document.getElementsByClassName('page');
+for(var i = 0; i < pages.length; i++)
+  {
+    var page = pages[i];
+    if (i % 2 === 0)
+      {
+        page.style.zIndex = (pages.length - i);
+      }
+  }
+
+  for(var i = 0; i < pages.length; i++)
+    {
+      //Or var page = pages[i];
+      pages[i].pageNum = i + 1;
+      pages[i].onclick=function()
+        {
+          if (this.pageNum % 2 === 0)
+            {
+              this.classList.remove('flipped');
+              this.previousElementSibling.classList.remove('flipped');
+            }
+          else
+            {
+              this.classList.add('flipped');
+              this.nextElementSibling.classList.add('flipped')
+              ;
+            }
+         }
+      }
+// =======// page flipping interaction ends here =======//
+    }

@@ -1,3 +1,11 @@
+/* If you're feeling fancy you can add interactivity 
+    to your site with Javascript */
+
+// prints "hi" in the browser's dev tools console
+
+
+
+
 //console.log("Hello is this working?");
 
 //load the aritable libray and call it air table
@@ -14,13 +22,13 @@ var base = new Airtable({ apiKey: "keyuZxN16RiqUv9vr" }).base(
 base ("fortune_telling").select({}).eachPage(gotPageOfWestern, gotAllWestern);
 
 // an empty array to hold our data
-var Images = [];
+var westernImage  = [];
 
 // callback function that recieve our data
 function gotPageOfWestern(records, fetchNextPage) {
   console.log("gotPageOfWestern()");
   // add the records from this page to our array
-  images.push(...records);
+  westernImage .push(...records);
   // request more pages
   fetchNextPage();
 }
@@ -36,26 +44,72 @@ function gotAllWestern(err) {
     return;
   }
 
-// call functions to log and show the western images
+// call functions to log and show the books
 consoleLogWesterns();
-showWesterns();
+
+try {
+  showWesterns();
+}catch(e) {
+    console.error(e);
+  }
 }
 
 // just loop through thour air tablee data and console.log it
 function consoleLogWesterns() {
   console.log("consoleLogWesterns()");
   westerns.forEach((western) => {
-    console.log("western:", western);
+    console.log("westerns:", western);
   });
 }
 
-// look through airtable data, and display them onto our page
+// look through our airtable data, create elements
 function showWesterns() {
-    console.log("showWesterns()");
-    westerns.forEach((western) => {
-        
-        var westernImage = document.createElement("img")
+  console.log("showWesterns()");
+  westerns.forEach((western) => {
+    // airtable에서 western부분 불러오기
+    var countryCategory = western.fields.country_category
+    countryCategory.forEach((category) => {
+      
+      if (category == 'western') {
+
+        // 1. create div for image to make a flip-card
+        var westernFlipCard = document.createElement("div");
+        // 2. add class of "flip-card-front" to new div
+        westernFlipCard.classList.add("flip-card-front");
+        // 3. create a new image
+        var westernImage = document.createElement("img");
+        // 4. add class of "western-image" to new image
         westernImage.classList.add("western-image");
+        // 5. add link "src" to image
+        // this is linking my airtable-fields
         westernImage.src = western.fields.img[0].url;
-        flip-card.append(westernImage);
-    }
+        // 6. add our image to our flip-card-front div
+        westernImage.appendChild(westernFlipCard);
+        // 7. finally, add our new page with our image to flip-card
+        document.querySelector(".flip-card").append(westernFlipCard);
+
+
+        // create div for text flip-card-back
+        var westernTextCard = document.createElement("div");
+        // 2. add class of flip-card-back to new div
+        westernTextCard.classList.add("flip-card-back");
+        // 3. create new paragraph
+        var westernDescription = document.createElement("p");
+        // 4. add class to our paragraph
+        westernDescription.classList.add("western-description");
+        // 5. add description to our paragraph
+        westernDescription.innerText = western.fields.description;
+        // 6. add our description to our page page (page div)
+        westernTextCard.appendChild(westernDescription);
+
+        
+
+
+
+
+      }
+
+
+    })
+  });
+}
