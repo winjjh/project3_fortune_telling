@@ -193,12 +193,12 @@ h1 {
     
     .container {
         position: fixed;
-        width: 90%;
+        width: 40%;
         top: 0;
-        left: 5%;
+        left: 0;
         padding: 2rem;
         margin: 20px;
-        border: 2px solid purple;
+        border: 1px solid purple;
         background-color: white;
         border-radius: 25px;
         display: grid;
@@ -206,23 +206,25 @@ h1 {
     }
     
     .filter {
-        font-size: 1rem;
+        font-size: 0.55em;
         color: black;
         padding: 10px;
         line-height:1.5;
+        position: absolute;
+        top: 20%;
     }
 
     .western-image {
-        width: 250px;
-        height: 400px;
+        width: 150px;
+        height: 300px;
     }
     
     .flip-card-back {
         background-color: black;
         color: #fff;
         transform: rotateY(180deg);
-        width: 250px;
-        height: 400px;
+        width: 150px;
+        height: 300px;
         position: absolute;
     }
 
@@ -232,7 +234,7 @@ h1 {
     margin-bottom: 20px;
     padding: 20px;
     line-break: auto;
-    font-size: 0.55em;
+    font-size: 0.35em;
     }
     
     h1 {
