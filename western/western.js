@@ -22,6 +22,7 @@ var base = new Airtable({ apiKey: "keyuZxN16RiqUv9vr" }).base(
 base ("fortune_telling").select({}).eachPage(gotPageOfWestern, gotAllWestern);
 
 // an empty array to hold our data
+// my array!!!!!!!
 var westernImage  = [];
 
 // callback function that recieve our data
@@ -57,7 +58,7 @@ try {
 // just loop through thour air tablee data and console.log it
 function consoleLogWesterns() {
   console.log("consoleLogWesterns()");
-  westerns.forEach((western) => {
+  westernImage.forEach((western) => {
     console.log("westerns:", western);
   });
 }
@@ -65,7 +66,7 @@ function consoleLogWesterns() {
 // look through our airtable data, create elements
 function showWesterns() {
   console.log("showWesterns()");
-  westerns.forEach((western) => {
+  westernImage.forEach((western) => {
     // airtable에서 western부분 불러오기
     var countryCategory = western.fields.country_category
     countryCategory.forEach((category) => {
@@ -84,7 +85,7 @@ function showWesterns() {
         // this is linking my airtable-fields
         westernImage.src = western.fields.img[0].url;
         // 6. add our image to our flip-card-front div
-        westernImage.appendChild(westernFlipCard);
+        westernFlipCard.appendChild(westernImage);
         // 7. finally, add our new page with our image to flip-card
         document.querySelector(".flip-card").append(westernFlipCard);
 
@@ -99,8 +100,18 @@ function showWesterns() {
         westernDescription.classList.add("western-description");
         // 5. add description to our paragraph
         westernDescription.innerText = western.fields.description;
-        // 6. add our description to our page page (page div)
+        // 6. add our description to our "flip-back-card" (page div)
         westernTextCard.appendChild(westernDescription);
+        document.querySelector(".flip-card").append(westernFlipCard);
+
+        // 7. create a new headline
+        var westernTitle = document.createElement("h1");
+        // 8. add a class to western title
+        westernTitle.classList.add("western-title");
+        // 9. add title to the "flip-card-back"
+        westernTextCard.appendChild(westernTitle);
+        // 10. add new page(images, texts and the title) to the "card-container"
+        document.querySelector(".flip-card").append(westernTextCard)
 
         
 
@@ -113,3 +124,16 @@ function showWesterns() {
     })
   });
 }
+
+// card individual flipping effect
+
+var flipCardDiv = document.createElement("div")
+flipCardDiv.classList.add("flip-card-wrap")
+flipCardDiv.append(".flip-card");
+
+const cards = document.querySelectorAll(".flip-card");
+
+function flipCard() {
+  this.classList.toggle("flip");
+}
+cards.forEach((card) => card.addEventListener("click", flipCard));
