@@ -229,6 +229,14 @@ h1 {
         display: grid;
         z-index: 2;
     }
+    .filter {
+        font-size: 0.55em;
+        color: black;
+        padding: 10px;
+        line-height:1.5;
+        position: absolute;
+        top: 20%;
+    }
     a {
         text-decoration: none;
         color: black;
