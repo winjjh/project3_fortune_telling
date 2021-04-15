@@ -124,24 +124,24 @@ function showWesterns() {
         // get genre field from airtable
         // loop through the array and add each genre as
         // a class to the song container
+        
+    //      var flipCardDiv = genre.fields.genre;
+    //      flipCardDiv.forEach(function(genre){
+    //       westernImage.classList.add(genre)
+    //  })
 
-        // var westernFlipCard = genre_category.fields.genre;
-        // westernFlipCard.forEach(function(genre){
-        //   westernFlipCard.classList.add(genre)
-        // })
+    //     // add event listener to our filter
+    //     // to add an active class to our song
 
-        // // add event listener to our filter
-        // // to add an active class to our song
+    //     var filterCard = document.querySelector('.card');
+    //     filterCard.addEventListener("click", function(){
 
-        // var filterCard = document.querySelector('.card');
-        // filterCard.addEventListener("click", function(){
-
-        //     if (westernFlipCard.classList.contains("card")) {
-        //       westernFlipCard.style.background ="red";
-        //     } else {
-        //       westernFlipCard.style.background = "blue";
-        //     }
-        // })
+    //      if (flipCardDiv.classList.contains("card")) {
+    //       flipCardDiv.style.background ="red";
+    //      } else {
+    //       flipCardDiv.style.background = "blue";
+    //      }
+    //     })
         
 
 

@@ -5,13 +5,15 @@ box-sizing: border-box;
 
 .jb-box {
     padding: 20px;
-    top: -5%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: auto;
     margin: 0px auto;
     margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    align-content: center;
   }
 
   .background {
@@ -33,7 +35,10 @@ body {
 }
 
 .flip-card-container {
+    position: absolute;
+    margin-top: 10%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     height: auto;
@@ -47,7 +52,7 @@ body {
 .flip-card {
     display: flex;
     flex-direction: row;
-    padding: 60px;
+    padding: 20px;
     width: auto;
     height: auto;
     margin: 15;
@@ -62,7 +67,6 @@ body {
 
 .flip-card-front, .flip-card-back {
     backface-visibility: hidden;
-    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
@@ -86,7 +90,6 @@ body {
 }
 
 .flip-card-front {
-    position: relative;
     justify-content: center;
     align-content: center;
 }
@@ -97,7 +100,7 @@ body {
 }
 
 .flip-card-back {
-    background-color: #517fa4;
+    background-color: black;
     color: #fff;
     transform: rotateY(180deg);
     width: 350px;
@@ -106,24 +109,35 @@ body {
 }
 
 .container {
-    position: relative; 
-    height:400px;
-    top: -20%;
-    left: -80%;
+    position: fixed;
+    width: 25%;
+    top: 0;
+    left: 5%;
     padding: 2rem;
-    border: 1px solid purple;
+    margin: 20px;
+    border: 2px solid purple;
+    background-color: white;
     border-radius: 25px;
     display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 1fr 1fr;
+    z-index: 2;
 }
 
 .filter {
+    font-size: 1.2rem;
+    color: black;
     padding: 10px;
     line-height:1.5;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+}
+
 p {
+    position: absolute;
+    margin-bottom: 20px;
     padding: 20px;
     line-break: auto;
     font-size: 0.65em;
@@ -134,4 +148,217 @@ h1 {
     font-size: 1em;
     position: absolute;
     top: 5%;
+}
+
+
+
+/*target only screen up to 375px*/
+@media only screen and (min-width: 375px) {
+
+    .jb-box {
+        padding: 20px;
+        top: 10;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        margin-top: 2rem;
+        position: absolute;
+        align-items: center;
+        align-content: center;
+      }
+    
+      .background {
+        width: auto;
+        height: auto;
+        max-width: 200px;
+        max-height: 200px;
+        padding: 20px;
+        opacity: 0.5;
+      }
+
+    .flip-card-container {
+        position: absolute;
+        top: 10%;
+    }
+    
+    .flip-card-back {
+        background-color: black;
+        color: #fff;
+        transform: rotateY(180deg);
+        width: 350px;
+        height: 500px;
+        position: absolute;
+    }
+    
+    .container {
+        position: fixed;
+        width: 80%;
+        top: 0;
+        left: 5%;
+        padding: 2rem;
+        margin: 20px;
+        border: 2px solid purple;
+        background-color: white;
+        border-radius: 25px;
+        display: grid;
+        z-index: 2;
+    }
+    
+    .filter {
+        font-size: 1rem;
+        color: black;
+        padding: 10px;
+        line-height:1.5;
+    }
+
+    .western-image {
+        width: 250px;
+        height: 400px;
+    }
+    
+    .flip-card-back {
+        background-color: black;
+        color: #fff;
+        transform: rotateY(180deg);
+        width: 250px;
+        height: 400px;
+        position: absolute;
+    }
+
+    p {
+    position: absolute;
+    top: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    line-break: auto;
+    font-size: 0.55em;
+    }
+    
+    h1 {
+        padding: 20px;
+        font-size: 0.75em;
+        position: absolute;
+        top: 5%;
+    }
+}
+
+
+
+
+/*target only screen up to 1024px*/
+@media only screen and (min-width: 1024px) {
+
+    .jb-box {
+        padding: 20px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        margin-top: 2rem;
+        position: absolute;
+        align-items: center;
+        align-content: center;
+      }
+    
+      .background {
+        width: auto;
+        height: auto;
+        max-width: 300px;
+        max-height: 300px;
+        padding: 20px;
+        opacity: 0.5;
+      }
+
+    .flip-card-container {
+        position: absolute;
+        margin-top: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        /* the following code centers the cards in the middle of page */
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* perspective: 1000px; */
+    }
+    .flip-card {
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+        width: auto;
+        height: auto;
+        margin: 15;
+    }
+    .flip-card-front, .flip-card-back {
+        font-size: 2rem;
+    }
+    .western-image {
+        width: 350px;
+        height: 500px;
+    }
+    
+    .flip-card-back {
+        width: 350px;
+        height: 500px;
+        position: absolute;
+    }
+    
+    .flip-card-front {
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .western-image {
+        width: 350px;
+        height: 500px;
+    }
+    
+    .flip-card-back {
+        background-color: black;
+        color: #fff;
+        transform: rotateY(180deg);
+        width: 350px;
+        height: 500px;
+        position: absolute;
+    }
+    
+    .container {
+        position: fixed;
+        width: 25%;
+        top: 0;
+        left: 5%;
+        padding: 2rem;
+        margin: 20px;
+        border: 2px solid purple;
+        background-color: white;
+        border-radius: 25px;
+        display: grid;
+        z-index: 2;
+    }
+    
+    .filter {
+        font-size: 1.2rem;
+        color: black;
+        padding: 10px;
+        line-height:1.5;
+    }
+
+    p {
+        position: absolute;
+    margin-bottom: 20px;
+    padding: 20px;
+    line-break: auto;
+    font-size: 0.65em;
+    }
+    
+    h1 {
+        padding: 20px;
+        font-size: 1em;
+        position: absolute;
+        top: 5%;
+    }  
 }

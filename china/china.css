@@ -126,10 +126,33 @@ h1 {
 
 /*target only screen up to 375px*/
 @media only screen and (min-width: 375px) {
+
+    .jb-box {
+        padding: 20px;
+        top: 10;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        margin-top: 2rem;
+        position: absolute;
+        align-items: center;
+        align-content: center;
+      }
+    
+      .background {
+        width: auto;
+        height: auto;
+        max-width: 200px;
+        max-height: 200px;
+        padding: 20px;
+        opacity: 0.5;
+      }
+
     .flip-card-container{
         position: absolute;
         align-content: center;
-        left: 20%;
+        left: 30%;
     }
 
     .flip-card {

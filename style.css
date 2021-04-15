@@ -19,8 +19,8 @@ body {
 .background {
     width: auto;
     height: auto;
-    max-width: 200px;
-    max-height: 150px;
+    max-width: 300px;
+    max-height: 250px;
     padding: 20px;
     opacity: 0.5;
     z-index:-1;
@@ -29,8 +29,8 @@ body {
 .background-rotate {
     width: auto;
     height: auto;
-    max-width: 200px;
-    max-height: 220px;
+    max-width: 300px;
+    max-height: 320px;
     padding: 20px;
     opacity: 0.5;
     animation: rotate-image 2s linear infinite;
@@ -114,6 +114,7 @@ h2 {
     text-align: center;
     color: white;
     font-size: 32px;
+    padding: 20px;
   }
   
   li {
@@ -130,7 +131,7 @@ h2 {
     align-items: center;
     position: absolute;
     top: 35%;
-    left: 30%;
+    left: 25%;
     font-size: 20px;
    }
 
@@ -197,51 +198,7 @@ background-color:whitte;
     margin-top: -50rem;  
 }**/
 
-.rolling_box{
-    position: absolute;
-    bottom: 0;
-    left: 45%;
-    text-align: center;
-    font-size: 20px;
-}
 
-.rolling_box ul {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.rolling_box ul li {
-    width: 100%;
-    height: 100%;
-    transition: .5s;
-    position:absolute;
-    transition: top .75s;
-    top: 100%;
-    z-index: 1;
-}
-
-.card_sliding{
-    top: 0 !important;
-    z-index: 100 !important;
-} 
-
-.card_sliding_after{
-    top: -100% !important;
-    z-index: 10 !important;
-}
-
-.before_slide {
-    transform: translateY(100%);
-}
-
-.after_slide {
-    transform: translateY(0);
-}
-
-.one_text {
-    padding: 20px;
-}
 
 
 /**@keyframes motion {
@@ -251,40 +208,246 @@ background-color:whitte;
 
 .c-loading { position: fixed; top: 0%; left: 50%; transform: translateX(-50%); width: auto; min-width: 100%; text-align: center; overflow: hidden; animation: marquee 20s linear infinite; animation-play-state: running; background-color: #ffbb00; z-index: 99999; }
 
-
-
-
-
-
-/**.h1 {
-    font-weight: normal;
-    font-size: 1.5rem;
-    margin: 0;
+/*target only screen up to 375px*/
+@media only screen and (min-width: 375px) {
+    .jb-box {
+        position: absolute;
+        padding: 20px;
+        top: -5%;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        margin-top: 2rem;
+    }
+    
+    .background {
+        width: auto;
+        height: auto;
+        max-width: 150px;
+        max-height: 100px;
+        padding: 20px;
+        opacity: 0.5;
+        z-index:-1;
+    }
+    
+    .background-rotate {
+        width: auto;
+        height: auto;
+        max-width: 150px;
+        max-height: 170px;
+        padding: 20px;
+        opacity: 0.5;
+        animation: rotate-image 2s linear infinite;
+        transform-origin: 50% 50%;
+        z-index:-1;
+    }
+    .flip-card {
+        display: flex;
+        /* set width and height to each flip card to maintain size */
+        width: 300px;
+        height: 450px;
+        margin: 20px;
+    }
+    
+    /* add container div that wraps around all the cards called card-container */
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        /* the following code centers the cards in the middle of page */
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    
+    .flip-card-inner {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: -65%;
+        padding: 60px;
+        width: 120px;
+        height: 250px;
+        text-align: center;
+    }
+    img {
+        width: 200px;
+        height: 350px;
+    }
+    
+    h2 {
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        padding: 20px;
+      }
+      
+      li {
+        line-height: 25px;
+        color: white;
+        list-style: none;
+      }
+    
+      a {
+        top: 35%;
+        left: 25%;
+        font-size: 16px;
+       }
+    
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .flip-card-back  {
+    position: absolute;
+    text-align: center;
+    }
+    
+    .japan {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+    }
+    
+    .western {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+    }
+    
+    .china {
+       position: absolute;
+       width: 100%;
+       height: 100%; 
+       border-radius: 16px;
+    }
 }
 
-.song-container {
-    padding: 1rem;
-    border: 1px solid black;
-    border-radius: 25px;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 1fr 1fr;
-}
 
-.song-image {
-    width: 100%;
-    height: auto;
-    display: none;
-}
 
-.song-image.active {
-    display: block;
-}
 
-.song-description {
-    display: none;
+/*target only screen up to 1024px*/
+@media only screen and (min-width: 1024px) {
+    .jb-box {
+        position: absolute;
+        padding: 20px;
+        top: -5%;
+        width: 100%;
+        height: auto;
+        margin: 0px auto;
+        margin-top: 2rem;
+    }
+    
+    .background {
+        width: auto;
+        height: auto;
+        max-width: 300px;
+        max-height: 250px;
+        padding: 20px;
+        opacity: 0.5;
+        z-index:-1;
+    }
+    
+    .background-rotate {
+        width: auto;
+        height: auto;
+        max-width: 300px;
+        max-height: 320px;
+        padding: 20px;
+        opacity: 0.5;
+        animation: rotate-image 2s linear infinite;
+        transform-origin: 50% 50%;
+        z-index:-1;
+    }
+    .flip-card {
+        display: flex;
+        /* set width and height to each flip card to maintain size */
+        width: 300px;
+        height: 450px;
+        margin: 20px;
+    }
+    
+    /* add container div that wraps around all the cards called card-container */
+    .cards-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        /* the following code centers the cards in the middle of page */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    
+    .flip-card-inner {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: -65%;
+        padding: 120px;
+        width: 120px;
+        height: 250px;
+        text-align: center;
+    }
+    img {
+        width: 300px;
+        height: 450px;
+    }
+    
+    h2 {
+        text-align: center;
+        color: white;
+        font-size: 32px;
+        padding: 20px;
+      }
+      
+      li {
+        line-height: 25px;
+        color: white;
+        list-style: none;
+      }
+    
+      a {
+        top: 35%;
+        left: 25%;
+        font-size: 20px;
+       }
+    
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .flip-card-back  {
+    position: absolute;
+    text-align: center;
+    }
+    
+    .japan {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+    }
+    
+    .western {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+    }
+    
+    .china {
+       position: absolute;
+       width: 100%;
+       height: 100%; 
+       border-radius: 16px;
+    }
 }
-
-.song-description.active {
-    display: block;
-}**/
