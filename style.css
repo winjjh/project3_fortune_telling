@@ -376,12 +376,13 @@ background-color:whitte;
     /* add container div that wraps around all the cards called card-container */
     .cards-container {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         height: auto;
         /* the following code centers the cards in the middle of page */
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
       }

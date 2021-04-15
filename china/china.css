@@ -123,6 +123,19 @@ h1 {
     top: 5%;
 }
 
+.container {
+    position: fixed;
+    width: 25%;
+    top: 0;
+    left: 5%;
+    padding: 2rem;
+    margin: 20px;
+    border: 2px solid darkred;
+    background-color: white;
+    border-radius: 25px;
+    display: grid;
+    z-index: 2;
+}
 
 /*target only screen up to 375px*/
 @media only screen and (min-width: 375px) {
@@ -152,6 +165,7 @@ h1 {
     .flip-card-container{
         position: absolute;
         align-content: center;
+        top: 10%;
         left: 30%;
     }
 
@@ -201,6 +215,24 @@ h1 {
     }
     h1 {
         font-size: 0.75em;
+    }
+    .container {
+        position: fixed;
+        width: 80%;
+        top: 0;
+        left: 5%;
+        padding: 2rem;
+        margin: 20px;
+        border: 2px solid darkred;
+        background-color: white;
+        border-radius: 25px;
+        display: grid;
+        z-index: 2;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        padding: 20px;
     }
 }
 
@@ -252,5 +284,18 @@ h1 {
         font-size: 1em;
         position: absolute;
         top: 5%;
+    }
+    .container {
+        position: fixed;
+        width: 25%;
+        top: 0;
+        left: 5%;
+        padding: 2rem;
+        margin: 20px;
+        border: 2px solid darkred;
+        background-color: white;
+        border-radius: 25px;
+        display: grid;
+        z-index: 2;
     }  
 }
