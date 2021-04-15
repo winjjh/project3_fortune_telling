@@ -73,6 +73,12 @@ function showWesterns() {
       
       if (category == 'western') {
 
+
+        var flipCardDiv = document.createElement("div")
+        flipCardDiv.classList.add("flip-card")
+        document.querySelector(".flip-card-container").append(flipCardDiv);
+
+ 
         // 1. create div for image to make a flip-card
         var westernFlipCard = document.createElement("div");
         // 2. add class of "flip-card-front" to new div
@@ -87,7 +93,7 @@ function showWesterns() {
         // 6. add our image to our flip-card-front div
         westernFlipCard.appendChild(westernImage);
         // 7. finally, add our new page with our image to flip-card
-        document.querySelector(".flip-card").append(westernFlipCard);
+        flipCardDiv.append(westernFlipCard);
 
 
         // create div for text flip-card-back
@@ -102,17 +108,40 @@ function showWesterns() {
         westernDescription.innerText = western.fields.description;
         // 6. add our description to our "flip-back-card" (page div)
         westernTextCard.appendChild(westernDescription);
-        document.querySelector(".flip-card").append(westernFlipCard);
+        flipCardDiv.append(westernFlipCard);
 
         // 7. create a new headline
         var westernTitle = document.createElement("h1");
         // 8. add a class to western title
         westernTitle.classList.add("western-title");
+        // 9. add our title from airtable
+        westernTitle.innerText = western.fields.title;
         // 9. add title to the "flip-card-back"
         westernTextCard.appendChild(westernTitle);
         // 10. add new page(images, texts and the title) to the "card-container"
-        document.querySelector(".flip-card").append(westernTextCard)
+        flipCardDiv.append(westernTextCard)
 
+        // get genre field from airtable
+        // loop through the array and add each genre as
+        // a class to the song container
+
+        // var westernFlipCard = genre_category.fields.genre;
+        // westernFlipCard.forEach(function(genre){
+        //   westernFlipCard.classList.add(genre)
+        // })
+
+        // // add event listener to our filter
+        // // to add an active class to our song
+
+        // var filterCard = document.querySelector('.card');
+        // filterCard.addEventListener("click", function(){
+
+        //     if (westernFlipCard.classList.contains("card")) {
+        //       westernFlipCard.style.background ="red";
+        //     } else {
+        //       westernFlipCard.style.background = "blue";
+        //     }
+        // })
         
 
 
@@ -127,9 +156,9 @@ function showWesterns() {
 
 // card individual flipping effect
 
-var flipCardDiv = document.createElement("div")
-flipCardDiv.classList.add("flip-card-wrap")
-flipCardDiv.append(".flip-card");
+// var flipCardDiv = document.createElement("div")
+// flipCardDiv.classList.add("flip-card")
+// document.querySelector(".flip-card-container").append(flipCardDiv);
 
 const cards = document.querySelectorAll(".flip-card");
 
@@ -137,3 +166,4 @@ function flipCard() {
   this.classList.toggle("flip");
 }
 cards.forEach((card) => card.addEventListener("click", flipCard));
+
