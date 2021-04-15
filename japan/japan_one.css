@@ -251,7 +251,7 @@ h2 {
     font-size: 16px;
     color: white;
     position: absolute;
-    top: 0;
+    top: 10%;
     left: 10%;
     line-height: 1.2;
   }
@@ -263,14 +263,14 @@ h2 {
     position: absolute;
     width: auto;
     top: 60%;
-    left: 40%;
+    left: 50%;
     line-height: 1.5;
   }
   
     p{
       font-size: 8px;
       position: absolute;
-      top: 20%;
+      top: 40%;
       color: white;
       line-height: 1.2;
       text-align: left;
