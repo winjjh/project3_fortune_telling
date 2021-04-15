@@ -258,7 +258,7 @@ background-color:whitte;
         height: auto;
         /* the following code centers the cards in the middle of page */
         position: absolute;
-        top: 65%;
+        top: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
