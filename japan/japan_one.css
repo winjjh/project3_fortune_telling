@@ -182,14 +182,13 @@ h2 {
   }
 
   a {
-    font-size: 20px;
+    font-size: 40px;
     text-decoration: none;
-    color: white;
+    color: black;
     padding: 20px;
-    display: flex;
-    position: relative;
+    position: absolute;
     top: 5%;
-    left: 2%;
+    left: 5%;
   }
   
   /*target only screen up to 375px*/
@@ -279,13 +278,18 @@ h2 {
 
     a {
       font-size: 12px;
-      line-height: 0.5;
+      color: black;
+      position: absolute;
+
     }
 
 }
 
 /*target only screen up to 1024px*/
 @media only screen and (min-width: 1024px) {
+  a {
+    font-size: 32px;
+  }
   .jb-box {
     position: absolute;
     padding: 20px;
