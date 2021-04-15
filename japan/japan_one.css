@@ -182,12 +182,13 @@ h2 {
   }
 
   a {
-    font-size: 32px;
+    font-size: 20px;
     text-decoration: none;
-    color: black;
+    color: white;
     padding: 20px;
     display: flex;
     position: relative;
+    top: 5%;
     left: 2%;
   }
   
