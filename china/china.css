@@ -218,7 +218,7 @@ h1 {
     }
     .container {
         position: fixed;
-        width: 100%;
+        width: 80%;
         top: 0;
         left: 5%;
         padding: 2rem;
